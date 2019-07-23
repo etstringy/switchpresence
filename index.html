@@ -13,17 +13,17 @@
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!-- Add game backend stuff -->
-    <script src="discord.js"></script>
-
     <style>
     body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      min-height: 100vh;
+      background-color: #2C2F33;
+      color: white;
+    }
+
+    .rcorners1 {
+      background: #23272A;
+      padding: 20px; 
+      width: 1000px;
+      height: auto; 
     }
     </style>
 
@@ -33,15 +33,19 @@
         <div class="nav-wrapper">
           <a href="#!" class="brand-logo"><img src="logo.png" alt="SwitchPresence" width="64px"></a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="#" id="#close-btn"><i class="material-icons">close</i></a></li>
+            <li><a href="#" id="close-btn"><i class="material-icons">close</i></a></li>
           </ul>
         </div>
     </nav>
 
-    <form>
-        Game:<br>
-        <input type="text" id="game" name="firstname"><br>
-    </form>
+    <div class="container rcorners1">
+      <h6>Game:</h6>
+      <input type="text" id="game" name="Game"><br>
+      <button class="btn waves-effect waves-light" id="submit" type="submit" name="action">Set Presence
+          <i class="material-icons right">send</i>
+      </button>
+      <a class="waves-effect waves-light btn red">Destroy Running Presence</a>
+    </div>
 
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>

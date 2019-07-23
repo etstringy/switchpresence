@@ -1,13 +1,16 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, ipcMain: ipc} = require('electron')
 const path = require('path')
+const settings = require('electron-settings');
 const client = require('discord-rich-presence')('602401007590309898');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let mainWindow
+let mainWindow;
 
-global.info = {game: 'Idle'}
+settings.set('sp', {
+  game: 'Nothing'
+});
 
 function createWindow () {
   // Create the browser window.
@@ -24,7 +27,7 @@ function createWindow () {
   mainWindow.loadFile('index.html')
 
   // Remove the menu bar
-  mainWindow.setMenu(null);
+  // mainWindow.setMenu(null);
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
@@ -73,7 +76,7 @@ function setActivity() {
 
 const presence = {
         // state: 'Playing Nintendo Switch',
-        details: global.info.game,
+        details: `Playing ${settings.get('sp.game')}`,
         largeImageKey: 'ns',
         smallImageKey: 'null'
 };
@@ -83,3 +86,9 @@ setActivity();
 setInterval(() => {
     setActivity();
 }, 15e3);
+
+ipc.on('updateGame', function (event, arg) {
+  settings.set('sp', {
+    game: arg
+  });
+})
