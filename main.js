@@ -12,21 +12,29 @@ global.info = {game: 'Idle'}
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 800,
+    width: 1200,
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
-    }
+    },
+    resizable: false
   })
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
+
+  // Remove the menu bar
+  mainWindow.setMenu(null);
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
+
+    // Disconnect from Discord.
+    client.disconnect()
+
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
@@ -43,6 +51,10 @@ app.on('ready', createWindow)
 app.on('window-all-closed', function () {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
+
+  // Disconnect from Discord.
+  client.disconnect()
+      
   if (process.platform !== 'darwin') app.quit()
 })
 
@@ -64,7 +76,7 @@ const presence = {
         details: global.info.game,
         largeImageKey: 'ns',
         smallImageKey: 'null'
-      };
+};
 
 setActivity();
 

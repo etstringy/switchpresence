@@ -2,13 +2,43 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>SwitchPresence</title>  
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+    }
+    </style>
+
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
+    <nav>
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo"><img src="logo.png" alt="SwitchPresence" width="64px"></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="#" id="#close-btn"><i class="material-icons">close</i></a></li>
+          </ul>
+        </div>
+    </nav>
+
+    <form>
+        Game:<br>
+        <input type="text" id="game" name="firstname"><br>
+    </form>
 
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>

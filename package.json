@@ -20,6 +20,8 @@
     "electron": "^5.0.7"
   },
   "dependencies": {
-    "discord-rich-presence": "^0.0.8"
+    "discord-rich-presence": "^0.0.8",
+    "discord-rpc": "^3.0.2",
+    "jQuery": "^1.7.4"
   }
 }
