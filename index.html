@@ -37,7 +37,8 @@
         <div class="nav-wrapper">
           <a href="#!" class="brand-logo"><img src="logo.png" alt="SwitchPresence" width="64px"></a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="#infomodal" id="close-btn"><i class="material-icons">info</i></a></li>
+            <li><a onclick="reload()" class="modal-trigger" id="close-btn"><i class="material-icons">replay</i></a></li>
+            <li><a onclick="openGithub()" class="modal-trigger" id="close-btn"><i class="material-icons">code</i></a></li>
           </ul>
         </div>
     </nav>
@@ -45,8 +46,14 @@
     <div class="container rcorners1">
       <h6>Game:</h6>
       <input type="text" id="game" name="Game"><br>
-      <a class="waves-effect waves-light btn" onclick="submit()"><i class="material-icons left">send</i>Set Presence</a>
-      <a class="waves-effect waves-light btn red" onclick="destroy()">Disconnect from Discord</a>
+      <br>
+
+      <h6>Friend Code:</h6>
+      <input type="text" id="FC" name="FC"><br>
+      <span class="helper-text" data-error="wrong" data-success="right">Your friend code saves in the program.</span><br><br>
+
+      <a class="waves-effect waves-light btn" onclick="submit()"><i class="material-icons left">send</i>Set Presence</a><br><br>
+      <a id="disconnect" class="waves-effect waves-light btn red" onclick="destroy()">Disconnect from Discord</a>
     </div>
 
     <!-- You can also require other files to run in this process -->

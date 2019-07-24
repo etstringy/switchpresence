@@ -1,6 +1,6 @@
 {
-  "name": "SwitchPresence",
-  "version": "1.0.1",
+  "name": "switchpresence",
+  "version": "1.1.0",
   "description": "An electron application to display Nintendo Switch games in Discord Rich Presence.",
   "main": "main.js",
   "scripts": {
@@ -15,6 +15,7 @@
   "dependencies": {
     "discord-rich-presence": "^0.0.8",
     "electron-settings": "^3.2.0",
+    "electron-updater": "^4.1.2",
     "jquery": "^3.4.1"
   },
   "build": {
@@ -26,9 +27,12 @@
     },
     "win": {
       "target": "nsis",
-      "icon":"logo.ico",
+      "icon": "logo.ico",
       "legalTrademarks": "Copyright © 2019 Stringy Software (strsft)",
-      "publisherName": "Stringy Software"
+      "publisherName": "Stringy Software",
+      "publish": [
+        "github"
+      ]
     }
   }
 }
