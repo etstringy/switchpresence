@@ -25,6 +25,10 @@
       width: 1000px;
       height: auto; 
     }
+
+    input[type=text] {
+      color:white;
+    }
     </style>
 
   </head>
@@ -33,7 +37,7 @@
         <div class="nav-wrapper">
           <a href="#!" class="brand-logo"><img src="logo.png" alt="SwitchPresence" width="64px"></a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="#" id="close-btn" onclick=""><i class="material-icons">close</i></a></li>
+            <li><a class="waves-effect waves-light btn modal-trigger" href="#infomodal">info</i></a></li>
           </ul>
         </div>
     </nav>
@@ -42,11 +46,23 @@
       <h6>Game:</h6>
       <input type="text" id="game" name="Game"><br>
       <a class="waves-effect waves-light btn" onclick="submit()"><i class="material-icons left">send</i>Set Presence</a>
-      <a class="waves-effect waves-light btn red" onclick="destroy()">Destroy Running Presence</a>
+      <a class="waves-effect waves-light btn red" onclick="destroy()">Disconnect from Discord</a>
     </div>
 
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
-    <script src="./discord.js"></script>
+
+      <!-- Modal Structure -->
+    <div id="infomodal" class="modal">
+      <div class="modal-content">
+        <h4>Modal Header</h4>
+        <p>A bunch of text</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+      </div>
+    </div>
+          
+
   </body>
 </html>

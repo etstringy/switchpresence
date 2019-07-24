@@ -4,6 +4,9 @@ const path = require('path')
 const settings = require('electron-settings');
 const client = require('discord-rich-presence')('602401007590309898');
 
+settings.set('sp.game', 'Nothing');
+settings.set('sp.img', 'null');
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
@@ -23,7 +26,7 @@ function createWindow () {
   mainWindow.loadFile('index.html')
 
   // Remove the menu bar
-  // mainWindow.setMenu(null);
+  mainWindow.setMenu(null);
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
@@ -44,10 +47,7 @@ function createWindow () {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', () => {
-  createWindow
-  // settings.set('game', 'Nothing' )
-})
+app.on('ready', createWindow)
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
@@ -70,25 +70,47 @@ app.on('activate', function () {
 // code. You can also put them in separate files and require them here.
 
 function setActivity() {
-    client.updatePresence(presence);
+    client.updatePresence({
+      // state: 'Playing Nintendo Switch',
+      details: `Playing ${settings.get('sp.game')}`,
+      largeImageKey: 'ns',
+      smallImageKey: settings.get('sp.img')
+    });
 }
 
-const presence = {
-        // state: 'Playing Nintendo Switch',
-        details: `Playing ${settings.get('game')}`,
-        largeImageKey: 'ns',
-        smallImageKey: 'null'
-};
 
 setActivity();
 
 setInterval(() => {
     setActivity();
+    // console.log(settings.get('sp.game'))
 }, 1000);
 
 ipc.on('updateGame', function (event, arg) {
-  console.log(`Debug> Presence set to ${arg}`)
-  settings.set('game', arg);
+  // console.log(`Debug> Presence set to ${arg}`)
+  if(arg == "Super Smash Bros Ultimate") {
+    settings.set('sp.img', 'smash');
+  } else if(arg == "Fortnite") {
+    settings.set('sp.img', 'fn');
+  } else if(arg == "Minecraft") {
+    settings.set('sp.img', 'mc');
+  } else if(arg == "Super Mario Maker 2") {
+    settings.set('sp.img', 'smm2');
+  } else if(arg == "Super Mario Party") {
+    settings.set('sp.img', 'smp');
+  } else if(arg == "Splatoon 2") {
+    settings.set('sp.img', 'splatoon_2');
+  } else if(arg == "Super Mario Odyssey") {
+    settings.set('sp.img', 'super_mario_odyssey');
+  } else if(arg == "Tetris 99") {
+    settings.set('sp.img', 'tetris99');
+  } else if(arg == "Undertale") {
+    settings.set('sp.img', 'undertale');
+  } else if(arg == "YouTube") {
+    settings.set('sp.img', 'yt');
+  }
+
+  settings.set('sp.game', arg);
 })
 
 ipc.on('destroyPresence', () => client.disconnect());

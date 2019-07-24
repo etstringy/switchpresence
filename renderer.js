@@ -2,11 +2,6 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 var {ipcRenderer: ipc, remote} = require('electron')
-var win = remote.getCurrentWindow();
-
-function closeWin() {
-    win.close()
-};
 
 function destroy() {
     ipc.send('destroyPresence')
