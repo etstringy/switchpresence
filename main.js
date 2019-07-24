@@ -108,6 +108,8 @@ ipc.on('updateGame', function (event, arg) {
     settings.set('sp.img', 'undertale');
   } else if(arg == "YouTube") {
     settings.set('sp.img', 'yt');
+  } else {
+    settings.set('sp.img', 'null');
   }
 
   settings.set('sp.game', arg);
