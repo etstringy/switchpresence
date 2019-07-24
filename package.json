@@ -9,11 +9,25 @@
   "repository": "https://github.com/etstringy/switchpresence",
   "author": "etstringy",
   "devDependencies": {
-    "electron": "^5.0.7"
+    "electron": "^5.0.7",
+    "electron-builder": "^21.1.1"
   },
   "dependencies": {
     "discord-rich-presence": "^0.0.8",
     "electron-settings": "^3.2.0",
     "jquery": "^3.4.1"
+  },
+  "build": {
+    "appId": "xyz.strsft.switchpresence",
+    "productName": "SwitchPresence",
+    "copyright": "Copyright © 2019 Stringy Software (strsft)",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": "nsis",
+      "icon":"logo.ico",
+      "legalTrademarks": "Copyright © 2019 Stringy Software (strsft)"
+    }
   }
 }
