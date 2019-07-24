@@ -4,14 +4,10 @@
 var {ipcRenderer: ipc, remote, shell} = require('electron')
 var $ = require('jQuery')
 
-document.getElementById("reconnect").disabled = true;
-document.getElementById("disconnect").disabled = false;
 
 function destroy() {
     ipc.send('destroyPresence')
     M.toast({html: 'Disconnected from Discord', classes:'blue accent-2'})
-    document.getElementById("disconnect").disabled = true;
-    document.getElementById("reconnect").disabled = false;
 };
 
 function submit() {
