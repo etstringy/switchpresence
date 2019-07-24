@@ -30,7 +30,7 @@ function createWindow () {
   mainWindow.setMenu(null);
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -63,7 +63,11 @@ app.on('window-all-closed', function () {
 
   // Disconnect from Discord.
   client.disconnect()
-      
+  
+  // Save FC
+  settings.set('sp.fc', settings.get("sp.fc"));
+
+  //
   if (process.platform !== 'darwin') app.quit()
 })
 
