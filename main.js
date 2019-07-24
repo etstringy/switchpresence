@@ -8,17 +8,13 @@ const client = require('discord-rich-presence')('602401007590309898');
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
-settings.set('sp', {
-  game: 'Nothing'
-});
-
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 1200,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      nodeIntegration: true
     },
     resizable: false
   })
@@ -48,7 +44,10 @@ function createWindow () {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
+app.on('ready', () => {
+  createWindow
+  // settings.set('game', 'Nothing' )
+})
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
@@ -76,7 +75,7 @@ function setActivity() {
 
 const presence = {
         // state: 'Playing Nintendo Switch',
-        details: `Playing ${settings.get('sp.game')}`,
+        details: `Playing ${settings.get('game')}`,
         largeImageKey: 'ns',
         smallImageKey: 'null'
 };
@@ -85,10 +84,11 @@ setActivity();
 
 setInterval(() => {
     setActivity();
-}, 15e3);
+}, 1000);
 
 ipc.on('updateGame', function (event, arg) {
-  settings.set('sp', {
-    game: arg
-  });
+  console.log(`Debug> Presence set to ${arg}`)
+  settings.set('game', arg);
 })
+
+ipc.on('destroyPresence', () => client.disconnect());
