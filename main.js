@@ -1,12 +1,12 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow, ipcMain: ipc, ipcRenderer} = require('electron')
+const {app, BrowserWindow, ipcMain: ipc, protocol} = require('electron')
 const { autoUpdater } = require("electron-updater")
 const path = require('path')
 const settings = require('electron-settings');
 const client = require('discord-rich-presence')('602401007590309898');
 
 settings.set('sp.game', 'Nothing');
-settings.set('sp.img', 'null');
+settings.set('sp.img', 'ns');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -56,6 +56,8 @@ app.on('ready', () => {
   autoUpdater.checkForUpdatesAndNotify()
 })
 
+app.setAsDefaultProtocolClient("switchpresence", [app.getPath("exe")]);
+
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
   // On macOS it is common for applications and their menu bar
@@ -89,8 +91,8 @@ function setActivity() {
     client.updatePresence({
       state: settings.get("sp.fc"),
       details: `Playing ${settings.get('sp.game')}`,
-      largeImageKey: 'ns',
-      smallImageKey: settings.get('sp.img'),
+      largeImageKey: settings.get('sp.img'),
+      // smallImageKey: settings.get('sp.img'),
       startTimestamp
     });
 }
@@ -141,7 +143,7 @@ ipc.on('updateGame', function (event, arg) {
   } else if(arg == "DELTARUNE") {
     settings.set('sp.img', 'deltarune');
   } else {
-    settings.set('sp.img', 'null');
+    settings.set('sp.img', 'ns');
   }
 
   settings.set('sp.game', arg);

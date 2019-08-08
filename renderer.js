@@ -7,6 +7,14 @@ window.onload = ipc.send('friendcode')
 
 ipc.send('friendcode')
 
+document.onkeyup = function(e) {
+    if (e.which == 13) {
+        submit()
+    } else if(e.which == 17 && e.which == 82){
+        reload()
+    }
+};
+
 function destroy() {
     ipc.send('destroyPresence')
     M.toast({html: 'Disconnected from Discord', classes:'blue accent-2'})
@@ -35,4 +43,3 @@ ipc.on('friendcode-client', function (event, arg) {
         document.getElementById("FC").value = ""
     }
 })
-
