@@ -19,11 +19,6 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@trodi/electron-splashscreen@^0.3.4":
-  version "0.3.4"
-  resolved "https://registry.yarnpkg.com/@trodi/electron-splashscreen/-/electron-splashscreen-0.3.4.tgz#9ca5a6ad1b8cfb5b4846c634da3dc1e9fa3f9373"
-  integrity sha512-nYF+sfNIEUhZPyzYUOpcqyCZoDYmMfZq8jLhEolvQFSVwrJ7gAlPhhMxpuw/qpCzPErUkFLEtdGGvK1tGtLuvQ==
-
 "@types/debug@^4.1.4":
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/@types/debug/-/debug-4.1.4.tgz#56eec47706f0fd0b7c694eae2f3172e6b0b769da"
@@ -147,11 +142,6 @@ app-builder-lib@~21.1.1:
     schema-utils "^2.0.1"
     semver "^6.3.0"
     temp-file "^3.3.4"
-
-app-root-path@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/app-root-path/-/app-root-path-2.2.1.tgz#d0df4a682ee408273583d43f6f79e9892624bc9a"
-  integrity sha512-91IFKeKk7FjfmezPKkwtaRvSpnUc4gDwPAjA1YZ9Gn0q0PPeW+vbeUsZuyDwjI7+QTHhcLen2v25fi/AmhvbJA==
 
 argparse@^1.0.7:
   version "1.0.10"
@@ -614,11 +604,6 @@ electron-download@^4.1.0:
     semver "^5.4.1"
     sumchecker "^2.0.2"
 
-electron-is-dev@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/electron-is-dev/-/electron-is-dev-1.1.0.tgz#b15a2a600bdc48a51a857d460e05f15b19a2522c"
-  integrity sha512-Z1qA/1oHNowGtSBIcWk0pcLEqYT/j+13xUw/MYOrBUOL4X7VN0i0KCTf5SqyvMPmW5pSPKbo28wkxMxzZ20YnQ==
-
 electron-publish@21.1.1:
   version "21.1.1"
   resolved "https://registry.yarnpkg.com/electron-publish/-/electron-publish-21.1.1.tgz#00acce2c60b45c2696e05852717a2fa7e9110a00"
@@ -652,11 +637,6 @@ electron-settings@^3.2.0:
   dependencies:
     clone "^2.1.1"
     jsonfile "^4.0.0"
-
-electron-splashscreen@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/electron-splashscreen/-/electron-splashscreen-0.1.7.tgz#eb7fa4e4d5fa92280efa45fd0832d570f774a418"
-  integrity sha512-hZoYCLcxX9lYiFoiJsVCdASJXe38tk/GMNCaLEEUVOJS5j5I6/P9LAPWkFbcyZM4oczRU4+jn0jEnn+AuiDdBw==
 
 electron-updater@^4.1.2:
   version "4.1.2"
@@ -1059,10 +1039,10 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
-jquery@^3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
-  integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
+jquery@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.0.tgz#9980b97d9e4194611c36530e7dc46a58d7340fc9"
+  integrity sha512-Xb7SVYMvygPxbFMpTFQiHh1J7HClEaThguL15N/Gg37Lri/qKyhRGZYzHRyLH8Stq3Aow0LsHO2O2ci86fCrNQ==
 
 js-yaml@^3.13.1:
   version "3.13.1"
